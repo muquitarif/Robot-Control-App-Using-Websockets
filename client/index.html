@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Robot Control App</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css"/>
+    <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css"/>
+</head>
+
+<body>
+
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col"> 
+                <p class="fw-bold fs-2">Robot Dashboard</p>
+            </div>
+
+            <div class="col text-end">
+               
+                <button class="btn btn-danger px-4 mt-2 ms-2" id="stop">Stop Robot</button>
+            </div>    
+        </div>
+    
+        <hr>
+    </div>
+
+    <div class="container mt-2 mb-3 text-center">
+        <p class="fs-4 fw-bold text-start mt-4">Sent Robot to Table No.</p>
+        <div class="row rounded-3 bg-light py-5">
+            <div class="col">
+                <button type="button" id="table1" class="px-5 fw-bold mt-2 mx-2 fs-2 py-5 btn btn-outline-secondary">1</button>
+                <button type="button" id="table2" class="px-5 fw-bold mt-2 mx-2 fs-2 py-5 btn btn-outline-secondary">2</button>
+                <button type="button" id="table3" class="px-5 fw-bold mt-2 mx-2 fs-2 py-5 btn btn-outline-secondary">3</button>
+                <button type="button" id="table4" class="px-5 fw-bold mt-2 mx-2 fs-2 py-5 btn btn-outline-secondary">4</button>    
+                <button type="button" id="table5" class="px-5 fw-bold mt-2 mx-2 fs-2 py-5 btn btn-outline-secondary">5</button>      
+                <button type="button" id="table6" class="px-5 fw-bold mt-2 mx-2 fs-2 py-5 btn btn-outline-secondary">6</button>  
+            </div>    
+        </div>
+    </div>
+
+
+    <div class="container mb-5">
+        <div class="mt-4">
+            <div class="row">
+                <div class="col-md-6 mt-3 text-center">
+                    <p class="fs-4 fw-bold text-start">Manual Control</p>
+                    <div class="container bg-light py-5 rounded">
+                        <div class="row">
+                            <div class="col">
+                                <button type="button" id="forward" class="btn btn-lg btn-outline-secondary arrow-btn mb-1 mx-1 mt-1"><i class="fs-1 bi bi-arrow-up"></i></button>
+                            </div>
+                        </div>
+                        <div class="row mt-1">
+                            <div class="col">
+                                <button type="button" id="left" class="btn btn-lg btn-outline-secondary arrow-btn mb-1 mx-1 mt-1"><i class="fs-1 bi bi-arrow-left"></i></button>
+                                <button type="button" id="backward" class="btn btn-lg btn-outline-secondary arrow-btn mb-1 mx-1 mt-1"><i class="fs-1 bi bi-arrow-down"></i></button>
+                                <button type="button" id="right" class="btn btn-lg btn-outline-secondary arrow-btn mb-1 mx-1 mt-1"><i class="fs-1 bi bi-arrow-right"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mt-3 text-center">
+                    <p class="fs-4 fw-bold text-start">Robot Status</p>
+                    <div class="container py-5 bg-light rounded">
+                        <div class="row py-3">
+                            <div class="col text-start ps-5 ms-4">
+                                <p class="fs-5">Robot Position</p>
+                                <p class="fs-5">Robot State</p>
+                                <p class="fs-5">Connection Status</p>
+                                
+
+                            </div>
+                            <div class="col text-center ps-5">
+                                <p class="fs-5" id="robotPosition">-</p>
+                                <p class="fs-5" id="robotDirection">-</p>
+                                <p class="fs-5" id="connectionStatus">-</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            
+    <div class="container mb-5">
+            <p class="fs-4 mt-4 fw-bold text-start">Logs</p>
+            <div class="container bg-light py-5 px-4 rounded">
+                <div class="row">
+                    <div class="col">
+                        <ul class="list-group" id="logs">
+                            <li class="list-group-item fs-5">-</li>
+                        </ul>
+                    </div>
+                </div>
+                        
+            </div>
+                        
+            </div>                
+        </div>
+    </div>
+
+</body>
+<script src="script.js"></script>
+
+</html>
