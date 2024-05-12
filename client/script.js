@@ -46,19 +46,3 @@ if (socket.OPEN)
     addButtonClickListener('right', 'R');
     addButtonClickListener('stop', 'S');
 }
-
-
-let logsList = document.getElementById('logs');
-socket.addEventListener('message', function(event) {
-    // The 'event' object contains the received data
-    let receivedData = event.data;
-
-    // Create a new <li> element to represent the new message
-    let newLogItem = document.createElement('li');
-    
-    // Set the text content of the <li> element to the received message
-    newLogItem.textContent = receivedData;
-    
-    // Append the new <li> element to the <ul> element
-    logsList.appendChild(newLogItem);
-});
