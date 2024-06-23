@@ -19,5 +19,21 @@
             </div>
         </div>    
 </body>
-<script src="script.js"></script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+            function updateTableNo() {
+                var tableNo = localStorage.getItem('tableNo');
+                if (tableNo) {
+                    document.getElementById('tableNo').innerText = tableNo;
+                }
+            }
+
+            // Update table number initially
+            updateTableNo();
+
+            // Polling mechanism to refresh every second
+            setInterval(updateTableNo, 500);
+        });
+</script>
 </html>

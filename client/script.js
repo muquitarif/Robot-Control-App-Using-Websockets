@@ -15,8 +15,6 @@ socket.addEventListener('close', function (event) {
 });
 
 
-
-
 // Update connection status in case of error
 socket.addEventListener('error', function (error) {
     console.error('WebSocket error:', error);
@@ -28,8 +26,9 @@ if (socket.OPEN)
     for (let i = 1; i <= 6; i++) {
         let button = document.getElementById('table' + i);
         button.addEventListener("click", function(event) {
-            socket.send(i.toString());
+            //socket.send(i.toString());
             console.log(i.toString());
+            localStorage.setItem('tableNo', '0' + i); 
         });
     }
 
@@ -37,7 +36,7 @@ if (socket.OPEN)
         if (this.checked) {
             document.getElementById('auto-checkbox').checked = false;
         }
-        //socket.send('M');
+        socket.send('M');
         console.log('M');
     });
     
@@ -45,7 +44,7 @@ if (socket.OPEN)
         if (this.checked) {
             document.getElementById('manual-checkbox').checked = false;
         }
-        //socket.send('A');
+        socket.send('A');
         console.log('A');
     });
 
