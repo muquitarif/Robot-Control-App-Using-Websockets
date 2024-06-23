@@ -33,16 +33,46 @@ if (socket.OPEN)
         });
     }
 
+    document.getElementById('manual-checkbox').addEventListener('change', function(event) {
+        if (this.checked) {
+            document.getElementById('auto-checkbox').checked = false;
+        }
+        //socket.send('M');
+        console.log('M');
+    });
+    
+    document.getElementById('auto-checkbox').addEventListener('change', function(event) {
+        if (this.checked) {
+            document.getElementById('manual-checkbox').checked = false;
+        }
+        //socket.send('A');
+        console.log('A');
+    });
+
+    function move(buttonId, data){
+        document.getElementById(buttonId).addEventListener("mousedown", function(event) {
+            socket.send(data);
+            console.log(data);
+    });
+
+    document.getElementById(buttonId).addEventListener("mouseup", function(event) {
+        socket.send('S');
+        console.log('S');
+    });
+    }
+
     function addButtonClickListener(buttonId, data) {
         document.getElementById(buttonId).addEventListener("click", function(event) {
             socket.send(data);
             console.log(data);
         });
     }
-    
-    addButtonClickListener('forward', 'F');
-    addButtonClickListener('backward', 'B');
-    addButtonClickListener('left', 'L');
-    addButtonClickListener('right', 'R');
+
+    move('forward', 'F');
+    move('backward', 'B');
+    move('left', 'L');
+    move('right', 'R');
+
     addButtonClickListener('stop', 'S');
+    addButtonClickListener('calibrate', 'C');
 }
