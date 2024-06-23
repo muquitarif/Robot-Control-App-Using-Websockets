@@ -1,6 +1,6 @@
 document.getElementById('connectionStatus').innerHTML = "Not Connected"
 
-const socket = new WebSocket('ws://192.168.137.113:80'); // Create a WebSocket connection
+const socket = new WebSocket('ws://robot.local'); // Create a WebSocket connection
 
 // Update connection status when connection is established
 socket.addEventListener('open', function (event) {
@@ -26,7 +26,7 @@ if (socket.OPEN)
     for (let i = 1; i <= 6; i++) {
         let button = document.getElementById('table' + i);
         button.addEventListener("click", function(event) {
-            //socket.send(i.toString());
+            socket.send(i.toString());
             console.log(i.toString());
             localStorage.setItem('tableNo', '0' + i); 
         });
