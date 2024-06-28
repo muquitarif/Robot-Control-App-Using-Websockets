@@ -1,3 +1,5 @@
+const notyf = new Notyf();
+
 document.getElementById('connectionStatus').innerHTML = "Not Connected"
 
 const socket = new WebSocket('ws://robot.local'); // Create a WebSocket connection
@@ -29,6 +31,7 @@ if (socket.OPEN)
             socket.send(i.toString());
             console.log(i.toString());
             localStorage.setItem('tableNo', '0' + i); 
+            notyf.success('Going to table 0' + i)
         });
     }
 
@@ -52,6 +55,7 @@ if (socket.OPEN)
         document.getElementById(buttonId).addEventListener("mousedown", function(event) {
             socket.send(data);
             console.log(data);
+            notyf.success(data == 'F' ? 'Forward' : data == 'B' ? 'Backward' : data == 'L' ? 'Left' : 'Right');
     });
 
     document.getElementById(buttonId).addEventListener("mouseup", function(event) {
@@ -64,6 +68,7 @@ if (socket.OPEN)
         document.getElementById(buttonId).addEventListener("click", function(event) {
             socket.send(data);
             console.log(data);
+            notyf.success(data == 'S' ? 'Stop' : 'Calibrating');
         });
     }
 
