@@ -7,5 +7,7 @@
 - Write **npm install** in terminal to download all the dependent packages from package.json file in both client
 - Open the index.html file access the Robot App
 
+### App Preview
+![Robo Dashboard](robot-dashboard.png)
 
 
